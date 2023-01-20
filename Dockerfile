@@ -11,7 +11,8 @@ ADD https://github.com/juev/getpocket-collector/releases/latest/download/getpock
 
 RUN set -eux; \
     \
-    apk add --no-cache curl; \
+    apk add --no-cache curl git; \
     rm -rf /var/cache/apk; \
     \
+    git config --global --add safe.directory 'README.md'; \
     chmod +x /app/rss-parser /app/getpocket-collector;
