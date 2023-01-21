@@ -1,6 +1,5 @@
 FROM bash:latest
 
-ARG USERNAME=runner
 ARG USER_UID=1000
 ARG USER_GID=$USER_UID
 
@@ -19,5 +18,4 @@ RUN set -eux; \
     rm -rf /var/cache/apk; \
     \
     git config --global --add safe.directory 'README.md'; \
-    chmod +x /app/rss-parser /app/getpocket-collector; \
-    chown -R runner ~runner;
+    chmod +x /app/rss-parser /app/getpocket-collector;
