@@ -12,7 +12,7 @@ ADD https://github.com/juev/getpocket-collector/releases/latest/download/getpock
 
 RUN set -eux; \
     \
-    apk add --no-cache curl jq; \
+    apk add --no-cache curl git jq gpg; \
     rm -rf /var/cache/apk; \
     \
     # addgroup -S runner -g $USER_GID; \
