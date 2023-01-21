@@ -1,5 +1,9 @@
 FROM bash:latest
 
+ARG USERNAME=runner
+ARG USER_UID=1000
+ARG USER_GID=$USER_UID
+
 ARG TARGETARCH="amd64"
 ARG TARGETOS="linux"
 ARG TARGETPLATFORM="linux/amd64"
@@ -15,4 +19,5 @@ RUN set -eux; \
     rm -rf /var/cache/apk; \
     \
     git config --global --add safe.directory 'README.md'; \
-    chmod +x /app/rss-parser /app/getpocket-collector;
+    chmod +x /app/rss-parser /app/getpocket-collector; \
+    chown -R runner ~runner;
