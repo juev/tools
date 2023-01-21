@@ -15,13 +15,14 @@ jobs:
       uses: docker/login-action@v2
       with:
         registry: ghcr.io
-        username: ${{ github.actor }}
+        username: ${{ github.repository_owner }}
         password: ${{ secrets.GITHUB_TOKEN }}
-          
+
     - name: Build and push image
       id: docker_build
       uses: docker/build-push-action@v3
       with:
+        context: .
         platforms: linux/amd64
         push: true
         tags: |
