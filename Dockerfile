@@ -16,10 +16,11 @@ RUN set -eux; \
     rm -rf /var/cache/apk; \
     \
     addgroup -S runner -g $USER_GID; \
-    adduser -S runner -G runner -u $USER_UID; \
+    mkdir -p /github/home; \
+    adduser -S runner -G runner -u $USER_UID -h /github/home; \
     chown -R runner ~runner; \
     chmod +x /app/rss-parser /app/getpocket-collector;
 
 USER runner
 
-WORKDIR /home/runner
+WORKDIR /github/home
