@@ -15,6 +15,6 @@ RUN set -eux; \
     rm -rf /var/cache/apk; \
     \
     adduser -D runner -u $USER_UID; \
-    chmod +x /usr/local/bin/rss-parser /usr/local/bin/getpocket-collector;
+    chmod +rx /usr/local/bin/rss-parser /usr/local/bin/getpocket-collector;
 
 USER runner
