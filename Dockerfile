@@ -6,8 +6,8 @@ ARG TARGETPLATFORM="linux/amd64"
 
 ARG USER_UID=1001
 
-ADD https://github.com/juev/rss-parser/releases/latest/download/rss-parser-linux-amd64 /app/rss-parser
-ADD https://github.com/juev/getpocket-collector/releases/latest/download/getpocket-collector-linux-amd64 /app/getpocket-collector
+ADD https://github.com/juev/rss-parser/releases/latest/download/rss-parser-linux-amd64 /usr/local/bin/rss-parser
+ADD https://github.com/juev/getpocket-collector/releases/latest/download/getpocket-collector-linux-amd64 /usr/local/bin/getpocket-collector
 
 RUN set -eux; \
     \
@@ -15,7 +15,6 @@ RUN set -eux; \
     rm -rf /var/cache/apk; \
     \
     adduser -D runner -u $USER_UID; \
-    chmod +x /app/rss-parser /app/getpocket-collector;
+    chmod +x /usr/local/bin/rss-parser /usr/local/bin/getpocket-collector;
 
 USER runner
-

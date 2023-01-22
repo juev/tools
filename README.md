@@ -21,3 +21,9 @@ podman buildx build --platform linux/amd64 -t juev/tools -f Dockerfile
 podman run -it --rm juev/tools
 ```
 
+or
+
+```sh
+make build
+make run
+```
